@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-16-2016 12:49:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Usuario" table="USUARIO" schema="TOO115" optimistic-lock="version">
+        <id name="idusuario" type="big_decimal">
+            <column name="IDUSUARIO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="Models.Persona" fetch="select">
+            <column name="IDPERSONA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="100" not-null="true" />
+        </property>
+        <property name="passwordlectoradm" type="string">
+            <column name="PASSWORDLECTORADM" length="100" not-null="true" />
+        </property>
+        <property name="rol" type="big_decimal">
+            <column name="ROL" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="50" not-null="true" />
+        </property>
+        <set name="prestamos" table="PRESTAMO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDUSUARIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Models.Prestamo" />
+        </set>
+    </class>
+</hibernate-mapping>

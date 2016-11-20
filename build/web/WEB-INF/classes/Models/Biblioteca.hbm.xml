@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-16-2016 12:49:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Biblioteca" table="BIBLIOTECA" schema="TOO115" optimistic-lock="version">
+        <id name="idbiblioteca" type="big_decimal">
+            <column name="IDBIBLIOTECA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrebiblioteca" type="string">
+            <column name="NOMBREBIBLIOTECA" length="100" not-null="true" />
+        </property>
+        <property name="direccionbiblioteca" type="string">
+            <column name="DIRECCIONBIBLIOTECA" length="248" />
+        </property>
+        <property name="telefenobiblioteca" type="big_decimal">
+            <column name="TELEFENOBIBLIOTECA" precision="22" scale="0" />
+        </property>
+        <property name="paginaweb" type="string">
+            <column name="PAGINAWEB" length="100" />
+        </property>
+        <set name="recursos" table="RECURSO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBIBLIOTECA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Models.Recurso" />
+        </set>
+    </class>
+</hibernate-mapping>

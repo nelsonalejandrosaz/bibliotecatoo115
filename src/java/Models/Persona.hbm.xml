@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-16-2016 12:49:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Persona" table="PERSONA" schema="TOO115" optimistic-lock="version">
+        <id name="idpersona" type="big_decimal">
+            <column name="IDPERSONA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="municipio" class="Models.Municipio" fetch="select">
+            <column name="IDMUNICIPIO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="100" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="APELLIDOS" length="100" not-null="true" />
+        </property>
+        <property name="dui" type="string">
+            <column name="DUI" length="25" not-null="true" />
+        </property>
+        <property name="telefono" type="big_decimal">
+            <column name="TELEFONO" precision="22" scale="0" />
+        </property>
+        <property name="nacimiento" type="date">
+            <column name="NACIMIENTO" length="7" />
+        </property>
+        <property name="lugarestudio" type="string">
+            <column name="LUGARESTUDIO" length="100" />
+        </property>
+        <property name="lugartrabajo" type="string">
+            <column name="LUGARTRABAJO" length="100" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="100" />
+        </property>
+        <property name="padre" type="string">
+            <column name="PADRE" length="100" />
+        </property>
+        <property name="madre" type="string">
+            <column name="MADRE" length="100" />
+        </property>
+        <set name="usuarios" table="USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPERSONA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Models.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

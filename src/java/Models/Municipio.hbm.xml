@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-16-2016 12:49:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Municipio" table="MUNICIPIO" schema="TOO115" optimistic-lock="version">
+        <id name="idmunicipio" type="big_decimal">
+            <column name="IDMUNICIPIO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="departamento" class="Models.Departamento" fetch="select">
+            <column name="IDDEPARTAMENTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombremunicipio" type="string">
+            <column name="NOMBREMUNICIPIO" length="50" not-null="true" />
+        </property>
+        <set name="personas" table="PERSONA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDMUNICIPIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Models.Persona" />
+        </set>
+    </class>
+</hibernate-mapping>

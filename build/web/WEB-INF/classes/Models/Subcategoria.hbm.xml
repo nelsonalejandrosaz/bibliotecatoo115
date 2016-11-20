@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-16-2016 12:49:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Subcategoria" table="SUBCATEGORIA" schema="TOO115" optimistic-lock="version">
+        <id name="idsubcategoria" type="big_decimal">
+            <column name="IDSUBCATEGORIA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="categoria" class="Models.Categoria" fetch="select" cascade="delete">
+            <column name="IDCATEGORIA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombresubcategoria" type="string">
+            <column name="NOMBRESUBCATEGORIA" length="50" not-null="true" />
+        </property>
+<!--        <set name="recursos" table="RECURSO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDSUBCATEGORIA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Models.Recurso" />
+        </set>-->
+    </class>
+</hibernate-mapping>

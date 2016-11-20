@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-16-2016 12:49:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Recurso" table="RECURSO" schema="TOO115" optimistic-lock="version">
+        <id name="idrecurso" type="big_decimal">
+            <column name="IDRECURSO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="biblioteca" class="Models.Biblioteca" fetch="select">
+            <column name="IDBIBLIOTECA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subcategoria" class="Models.Subcategoria" fetch="select">
+            <column name="IDSUBCATEGORIA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombrerecurso" type="string">
+            <column name="NOMBRERECURSO" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="140" not-null="true" />
+        </property>
+        <property name="sinopsis" type="string">
+            <column name="SINOPSIS" length="248" />
+        </property>
+        <property name="autores" type="string">
+            <column name="AUTORES" length="140" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="FECHA" length="7" not-null="true" />
+        </property>
+        <property name="volumen" type="big_decimal">
+            <column name="VOLUMEN" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="unidades" type="big_decimal">
+            <column name="UNIDADES" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="editorial" type="string">
+            <column name="EDITORIAL" length="140" not-null="true" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="IMAGEN" length="140" />
+        </property>
+        <property name="formato" type="string">
+            <column name="FORMATO" length="100" not-null="true" />
+        </property>
+        <property name="prestamointerno" type="big_decimal">
+            <column name="PRESTAMOINTERNO" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="prestamos" table="PRESTAMO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDRECURSO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Models.Prestamo" />
+        </set>
+    </class>
+</hibernate-mapping>
