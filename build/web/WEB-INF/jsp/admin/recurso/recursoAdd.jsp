@@ -1,7 +1,7 @@
 <%-- 
     Document   : recursoAdd
-    Created on : 11-16-2016, 03:20:36 PM
-    Author     : nelso
+    Created on : 11-20-2016, 09:25:51 PM
+    Author     : Nelson Alejandro Saz <nelsonalejandrosaz@gmail.com>
 --%>
 <%@include file="../taglib_include.jsp" %>
 <!DOCTYPE html> 
@@ -35,7 +35,6 @@
                     <!-- Input o select -->
                     <div class="col-sm-10">
                         <select id="categoriaS" name="categoria" class="form-control">
-                            <option value="0">--- Selecione la categoria ---</option>
                             <c:forEach items="${categorias}" var="categoria">
                                 <option value="${categoria.idcategoria}">${categoria.nombrecategoria}</option>
                             </c:forEach>
@@ -51,7 +50,6 @@
                     <!-- Input o select -->
                     <div class="col-sm-10">
                         <select id="subcategoriaS" name="subcategoria" class="form-control">
-                            <option value="0">--- Selecione la subcategoria ---</option>
                             <c:forEach items="${subcategorias}" var="subcategoria">
                                 <option value="${subcategoria.idsubcategoria}">${subcategoria.nombresubcategoria}</option>
                             </c:forEach>
@@ -171,7 +169,7 @@
                 <!-- Boton enviar -->
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <form:button class="btn btn-success" ><span class="glyphicon glyphicon-refresh"></span> Actualizar</form:button> <a class="btn btn-warning" role="button" href="subcategoriaList.html"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</a>
+                        <form:button class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Agregar</form:button> <a class="btn btn-warning" role="button" href="subcategoriaList.html"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</a>
                     </div>
                 </div>
             </form:form>

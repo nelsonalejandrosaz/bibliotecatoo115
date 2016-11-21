@@ -35,6 +35,7 @@
                     <!-- Input o select -->
                     <div class="col-sm-10">
                         <select id="categoriaS" name="categoria" class="form-control">
+                            <option value="0">--- Selecione la categoria ---</option>
                             <c:forEach items="${categorias}" var="categoria">
                                 <option value="${categoria.idcategoria}">${categoria.nombrecategoria}</option>
                             </c:forEach>
@@ -50,6 +51,7 @@
                     <!-- Input o select -->
                     <div class="col-sm-10">
                         <select id="subcategoriaS" name="subcategoria" class="form-control">
+                            <option value="0">--- Selecione la subcategoria ---</option>
                             <c:forEach items="${subcategorias}" var="subcategoria">
                                 <option value="${subcategoria.idsubcategoria}">${subcategoria.nombresubcategoria}</option>
                             </c:forEach>

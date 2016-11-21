@@ -27,7 +27,7 @@
             <column name="AUTORES" length="140" not-null="true" />
         </property>
         <property name="fecha" type="date">
-            <column name="FECHA" length="7" not-null="true" />
+            <column name="FECHA" length="7" not-null="false" />
         </property>
         <property name="volumen" type="big_decimal">
             <column name="VOLUMEN" precision="22" scale="0" not-null="true" />
